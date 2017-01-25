@@ -1,0 +1,30 @@
+{
+  "name": "crudpostbot",
+  "version": "0.1.0",
+  "description": "Posts crud in Discord.",
+  "main": "index.js",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "discord.js": "^11.0.0",
+    "jsonfile": "^2.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andriux5/CrudpostBot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "crud"
+  ],
+  "author": "Andriux5",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andriux5/CrudpostBot/issues"
+  },
+  "homepage": "https://github.com/Andriux5/CrudpostBot#readme"
+}

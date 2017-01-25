@@ -8,7 +8,7 @@ const fs = require('fs');
 function findImage(user, tags) {
 
     /* File path */
-    var file = __dirname + "/../stickers/" + user.id + ".json";
+    var file = __dirname + "/../stickers/" + user + ".json";
 
     /* If file exists */
     if(fs.existsSync(file)) {
@@ -41,7 +41,7 @@ function findImage(user, tags) {
 function saveImage(user, tags, image) {
 
     /* File path */
-    var file = __dirname + "/../stickers/" + user.id + ".json";
+    var file = __dirname + "/../stickers/" + user + ".json";
 
     /* Sticker to be added */
     sticker = new makeSticker(tags, image);
@@ -72,6 +72,35 @@ function saveImage(user, tags, image) {
 
 }
 
+function listStickers(user) {
+    
+    /* File path */
+    var file = __dirname + "/../stickers/" + user + ".json";
+
+    /* If file exists */
+    if(fs.existsSync(file)) {
+        stickers = getStickers(file);
+        var output = "";
+        /* Add every list to string */
+        for(var iterator = 0; iterator < stickers.length; iterator++) {
+            output = output + "`" + stickers[iterator].tags + "`";
+            if(stickers.length - 1 != iterator) {
+                 output = output  + ", ";
+            }
+        }
+        
+        return output;
+    }
+    else {
+
+        /* No stickers exist */
+        console.log("[DBG]".bgYellow + " No stickers exist.");
+        return "<none exist>";
+    }
+
+
+}
+
 /** Returns all stickers from a filepath */
 function getStickers(file) {
     return jsonfile.readFileSync(file);
@@ -88,3 +117,4 @@ function makeSticker(tags, image) {
 /* Sets up export */
 module.exports.findImage = findImage;
 module.exports.saveImage = saveImage;
+module.exports.listStickers = listStickers;

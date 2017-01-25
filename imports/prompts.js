@@ -99,6 +99,8 @@ function setupPrompts(client) {
             
             /* Saves image to database */
             file_handler.saveImage(user.id, tags, image);
+            /* Thanks the user */
+            message.reply("thanks fam, your sticker has been saved.")
         }
 
     /* Stock response */
